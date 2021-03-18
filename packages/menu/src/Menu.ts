@@ -276,7 +276,13 @@ export class Menu extends SpectrumElement {
         this.prepareToCleanUp();
     }
 
-    public startListeningToKeyboard(): void {
+    public startListeningToKeyboard(event: FocusEvent): void {
+        if (
+            event.relatedTarget === this ||
+            (event.relatedTarget && this.contains(event.relatedTarget as Node))
+        ) {
+            return;
+        }
         if (
             this.childItems.some(
                 (childItem) => childItem.menuData.focusRoot !== this
@@ -306,6 +312,12 @@ export class Menu extends SpectrumElement {
     }
 
     public handleFocusout(event: FocusEvent): void {
+        if (
+            event.relatedTarget === this ||
+            (event.relatedTarget && this.contains(event.relatedTarget as Node))
+        ) {
+            return;
+        }
         this.stopListeningToKeyboard();
         if (
             event.target === this &&
