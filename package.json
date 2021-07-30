@@ -103,7 +103,7 @@
         "@open-wc/building-webpack": "^2.13.46",
         "@open-wc/dev-server-hmr": "^0.1.1",
         "@open-wc/polyfills-loader": "^0.3.3",
-        "@open-wc/testing": "^2.5.33",
+        "@open-wc/testing": "^3.0.0-next.2",
         "@rollup/plugin-commonjs": "^20.0.0",
         "@rollup/plugin-json": "^4.1.0",
         "@rollup/plugin-node-resolve": "^13.0.4",
