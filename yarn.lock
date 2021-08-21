@@ -2183,6 +2183,19 @@
     "@open-wc/scoped-elements" "^2.0.0-next.3"
     lit "^2.0.0-rc.2"
 
+"@lit-labs/scoped-registry-mixin@^1.0.0-rc.3":
+  version "1.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/@lit-labs/scoped-registry-mixin/-/scoped-registry-mixin-1.0.0-rc.3.tgz#252e79b369bfb6454e5a31f7f4d47047756f04c0"
+  integrity sha512-fP45lxGQKV++K7RcrqrG3Rk5EE+qQ3baJ+BMrIDQ2HnK0ffB1i4TT+YYVsmXlLhkmbMQfbzLRfHw5PQHigPFhA==
+  dependencies:
+    "@lit/reactive-element" "1.0.0-rc.4"
+    lit "^2.0.0-rc.2"
+
+"@lit/reactive-element@1.0.0-rc.4":
+  version "1.0.0-rc.4"
+  resolved "https://registry.yarnpkg.com/@lit/reactive-element/-/reactive-element-1.0.0-rc.4.tgz#3473f6a687e9925fc2e9ff1b716a86b5f4b576ad"
+  integrity sha512-dJMha+4NFYdpnUJzRrWTFV5Hdp9QHWFuPnaoqonrKl4lGJVnYez9mu8ev9F/5KM47tjAjh22DuRHrdFDHfOijA==
+
 "@lit/reactive-element@^1.0.0-rc.1", "@lit/reactive-element@^1.0.0-rc.2":
   version "1.0.0-rc.3"
   resolved "https://registry.yarnpkg.com/@lit/reactive-element/-/reactive-element-1.0.0-rc.3.tgz#5032f493fbf39781b187a7e2dd5d256537c8760c"
@@ -5171,6 +5184,11 @@
   integrity sha512-iD0YW46SreUQANGccywK/eC+gZELNHocZZrY2fGwrIlx/biQOTkAF9IohisibHbrmIHmA9pVCIdGwzfO+W0gig==
 
 "@webcomponents/scoped-custom-element-registry@0.0.2", "@webcomponents/scoped-custom-element-registry@0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@webcomponents/scoped-custom-element-registry/-/scoped-custom-element-registry-0.0.3.tgz#774591a886b0b0e4914717273ba53fd8d5657522"
+  integrity sha512-lpSzgDCGbM99dytb3+J3Suo4+Bk1E13MPnWB42JK8GwxSAxFz+tC7TTv2hhDSIE2IirGNKNKCf3m08ecu6eAsQ==
+
+"@webcomponents/scoped-custom-element-registry@^0.0.3":
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/@webcomponents/scoped-custom-element-registry/-/scoped-custom-element-registry-0.0.3.tgz#774591a886b0b0e4914717273ba53fd8d5657522"
   integrity sha512-lpSzgDCGbM99dytb3+J3Suo4+Bk1E13MPnWB42JK8GwxSAxFz+tC7TTv2hhDSIE2IirGNKNKCf3m08ecu6eAsQ==
