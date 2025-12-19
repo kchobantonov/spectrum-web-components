@@ -1,119 +1,185 @@
-<!DOCTYPE html><html><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Storybook</title>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
 
+    <title>@storybook/core - Storybook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    
     <style>
-      html,
-      body {
-        overflow: hidden;
-        height: 100%;
-        width: 100%;
-        margin: 0;
-        padding: 0;
+      @font-face {
+        font-family: 'Nunito Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('./sb-common-assets/nunito-sans-regular.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-family: 'Nunito Sans';
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url('./sb-common-assets/nunito-sans-italic.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-family: 'Nunito Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url('./sb-common-assets/nunito-sans-bold.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-family: 'Nunito Sans';
+        font-style: italic;
+        font-weight: 700;
+        font-display: swap;
+        src: url('./sb-common-assets/nunito-sans-bold-italic.woff2') format('woff2');
       }
     </style>
 
+    <link href="./sb-manager/runtime.js" rel="modulepreload" />
+
+    
+    <link href="./sb-addons/storybook-core-core-server-presets-0/common-manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/links-1/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-controls-2/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-actions-3/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-docs-4/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-backgrounds-5/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-viewport-6/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-toolbars-7/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-measure-8/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-outline-9/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/a11y-10/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/geometricpanda-badges-11/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/storybook-12/manager-bundle.js" rel="modulepreload" />
+       
+
     <style>
-      #root[hidden],
-      #docs-root[hidden] {
+      #storybook-root[hidden] {
         display: none !important;
       }
     </style>
-    
-  
-<link rel="preload" href="./04e34235.js" as="script">
-</head>
 
+    
+  </head>
   <body>
     <div id="root"></div>
-    <div id="docs-root"></div>
+
     
-  
-<script>(function () {
-  function polyfillsLoader() {
-    function loadScript(src, type, attributes = []) {
-      return new Promise(function (resolve) {
-        var script = document.createElement('script');
-
-        function onLoaded() {
-          if (script.parentElement) {
-            script.parentElement.removeChild(script);
-          }
-
-          resolve();
-        }
-
-        script.src = src;
-        script.onload = onLoaded;
-        attributes.forEach(att => {
-          script.setAttribute(att.name, att.value);
-        });
-
-        script.onerror = function () {
-          console.error('[polyfills-loader] failed to load: ' + src + ' check the network tab for HTTP status.');
-          onLoaded();
-        };
-
-        if (type) script.type = type;
-        document.head.appendChild(script);
-      });
-    }
-
-    var polyfills = [];
-    polyfills.push(loadScript('./polyfills/regenerator-runtime.ebfd7b154777d0fed9fa79f20e07b8fc.js'));
-
-    if (!('fetch' in window) || !('Request' in window) || !('signal' in window.Request.prototype)) {
-      polyfills.push(loadScript('./polyfills/fetch.39185127fcf42e3e1035b245de5024df.js'));
-    }
-
-    polyfills.push(loadScript('./polyfills/systemjs.b6ad53205d8657841448f9c91e83f589.js'));
-
-    if (!('IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'intersectionRatio' in window.IntersectionObserverEntry.prototype)) {
-      polyfills.push(loadScript('./polyfills/intersection-observer.e09cbb4189f6808e65aaf9f27b007c02.js'));
-    }
-
-    if (!('ResizeObserver' in window)) {
-      polyfills.push(loadScript('./polyfills/resize-observer.c66e75decd4adba0d63c03d136370195.js'));
-    }
-
-    if (!('attachShadow' in Element.prototype) || !('getRootNode' in Element.prototype) || window.ShadyDOM && window.ShadyDOM.force) {
-      polyfills.push(loadScript('./polyfills/webcomponents.ed846db3e7c3b1354dcb129b8858e4d4.js'));
-    }
-
-    if (!('noModule' in HTMLScriptElement.prototype) && 'getRootNode' in Element.prototype) {
-      polyfills.push(loadScript('./polyfills/custom-elements-es5-adapter.3342b468203af1a14ca005e80d14148f.js'));
-    }
-
-    function loadFiles() {
-      System.import('./04e34235.js');
-    }
-
-    if (polyfills.length) {
-      Promise.all(polyfills).then(loadFiles);
-    } else {
-      loadFiles();
-    }
+    <script>
+      
+        
+          window['FEATURES'] = {
+  "argTypeTargetsV7": true,
+  "legacyDecoratorFileOrder": false,
+  "disallowImplicitActionsInRenderV8": true
+};
+        
+      
+        
+          window['REFS'] = {};
+        
+      
+        
+          window['LOGLEVEL'] = "info";
+        
+      
+        
+          window['DOCS_OPTIONS'] = {
+  "defaultName": "Docs",
+  "autodocs": "tag"
+};
+        
+      
+        
+          window['CONFIG_TYPE'] = "PRODUCTION";
+        
+      
+        
+      
+        
+      
+        
+          window['TAGS_OPTIONS'] = {
+  "dev-only": {
+    "excludeFromDocsStories": true
+  },
+  "docs-only": {
+    "excludeFromSidebar": true
+  },
+  "test-only": {
+    "excludeFromSidebar": true,
+    "excludeFromDocsStories": true
   }
+};
+        
+      
+        
+          window['STORYBOOK_RENDERER'] = "web-components";
+        
+      
+        
+          window['STORYBOOK_BUILDER'] = "@storybook/builder-webpack5";
+        
+      
+        
+          window['STORYBOOK_FRAMEWORK'] = "@storybook/web-components-webpack5";
+        
+      
+    </script>
+    
 
-  if (!('noModule' in HTMLScriptElement.prototype)) {
-    var s = document.createElement('script');
-
-    function onLoaded() {
-      document.head.removeChild(s);
-      polyfillsLoader();
-    }
-
-    s.src = "./polyfills/core-js.67b886accf8610d6a8546fefc03312e0.js";
-    s.onload = onLoaded;
-
-    s.onerror = function () {
-      console.error('[polyfills-loader] failed to load: ' + s.src + ' check the network tab for HTTP status.');
-      onLoaded();
-    };
-
-    document.head.appendChild(s);
-  } else {
-    polyfillsLoader();
-  }
-})();</script></body></html>
+    <script type="module">
+      import './sb-manager/globals-runtime.js';
+      
+      
+        import './sb-addons/storybook-core-core-server-presets-0/common-manager-bundle.js';
+      
+        import './sb-addons/links-1/manager-bundle.js';
+      
+        import './sb-addons/essentials-controls-2/manager-bundle.js';
+      
+        import './sb-addons/essentials-actions-3/manager-bundle.js';
+      
+        import './sb-addons/essentials-docs-4/manager-bundle.js';
+      
+        import './sb-addons/essentials-backgrounds-5/manager-bundle.js';
+      
+        import './sb-addons/essentials-viewport-6/manager-bundle.js';
+      
+        import './sb-addons/essentials-toolbars-7/manager-bundle.js';
+      
+        import './sb-addons/essentials-measure-8/manager-bundle.js';
+      
+        import './sb-addons/essentials-outline-9/manager-bundle.js';
+      
+        import './sb-addons/a11y-10/manager-bundle.js';
+      
+        import './sb-addons/geometricpanda-badges-11/manager-bundle.js';
+      
+        import './sb-addons/storybook-12/manager-bundle.js';
+      
+      
+      import './sb-manager/runtime.js';
+    </script>
+  </body>
+</html>
